@@ -188,16 +188,18 @@ GU256X64D-7000 PCB (PW-1315-101), with signal terminals grouped by function.
 | [Arduino Uno WiFi Rev2](#arduino-uno-wifi-rev2) | A0–A5, D9, D10 | D3 | D5 | D7 |
 | [Arduino Uno R4 Minima](#arduino-uno-r4-minima) | D2–D9 | D10 (see warning) | D11 | D12 |
 
-Power the VFD from an **external regulated 5 V DC supply** sized for
-startup inrush. Join Arduino GND, VFD GND, and the supply negative.
-Leave the Arduino 5 V pin open. **Tie `/RD` high directly to the VFD
-supply's +5 V** for write-only operation.
-[Noritake hardware specification](https://www.infinite-electronics.kr/datasheet/da-GU256X64D-7000.pdf)
+> [!WARNING]
+> Power the VFD from an **external regulated 5 V DC supply** sized for
+> startup inrush. Join Arduino GND, VFD GND, and the supply negative.
+> Leave the Arduino 5 V pin open. **Tie `/RD` high directly to the VFD
+> supply's +5 V** for write-only operation.
+> [Noritake hardware specification](https://www.infinite-electronics.kr/datasheet/da-GU256X64D-7000.pdf)
 
-The **10 kΩ pull-ups on `/WR` and `/RESET` are optional**. If fitted,
-connect them to the VFD supply's +5 V. They hold both lines high while
-the Arduino pins are high-impedance during boot or reset. After
-`begin()`, the library drives both lines high when idle.
+> [!NOTE]
+> The **10 kΩ pull-ups on `/WR` and `/RESET` are optional**. If fitted,
+> connect them to the VFD supply's +5 V. They hold both lines high while
+> the Arduino pins are high-impedance during boot or reset. After
+> `begin()`, the library drives both lines high when idle.
 
 On the pictured rear layout, use the shrouded **CN3** parallel header for
 data, power, and /WR. Set JRB C–B to route PBUSY to CN3 pin 3. Leave
