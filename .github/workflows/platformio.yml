@@ -1,0 +1,28 @@
+name: PlatformIO library CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  platformio:
+    name: PlatformIO package on ${{ matrix.board }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        board: [nano_every, sparkfun_promicro16, uno_r4_minima]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - run: python -m pip install platformio==6.1.19
+      - run: |
+          archive="$RUNNER_TEMP/GU256X64D7000.tar.gz"
+          pio pkg pack . --output "$archive"
+          pio ci --board "${{ matrix.board }}" --project-option 'framework=arduino' --project-option "lib_deps=file://$archive" examples/HelloVFD
