@@ -15,7 +15,7 @@ jobs:
     name: Code quality and command tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
@@ -26,7 +26,7 @@ jobs:
     name: Arduino Library Manager validation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: arduino/arduino-lint-action@v3.0.0
         with:
           path: ${{ github.workspace }}
@@ -65,7 +65,7 @@ jobs:
     env:
       SPARKFUN_INDEX: https://raw.githubusercontent.com/sparkfun/Arduino_Boards/main/IDE_Board_Manager/package_sparkfun_index.json
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: arduino/setup-arduino-cli@v2.1.0
       - if: matrix.board.core == 'SparkFun:avr@1.1.13'
         run: arduino-cli core install arduino:avr@1.8.8
