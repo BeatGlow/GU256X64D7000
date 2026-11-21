@@ -1,0 +1,22 @@
+using "platforms/boards/arduino_uno_r4_minima.repl"
+
+vfd: Miscellaneous.VfdBus @ sysbus 0x41000000
+    Busy -> port1@12
+
+port1:
+    5 -> vfd@0
+    4 -> vfd@1
+    3 -> vfd@2
+    2 -> vfd@3
+    6 -> vfd@4
+    7 -> vfd@5
+    9 -> vfd@8
+    10 -> vfd@9
+
+port3:
+    4 -> vfd@6
+    3 -> vfd@7
+
+port0:
+    2 -> vfd@10
+    1 -> vfd@11
