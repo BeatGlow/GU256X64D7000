@@ -1,7 +1,7 @@
 {
   "name": "GU256X64D7000",
   "version": "0.1.0",
-  "description": "Parallel Noritake GU256X64D-7000 driver for 5 V Arduino GPIO, with an ATmega4809 direct-port backend.",
+  "description": "Arduino library for driving the Noritake GU256X64D-7000 VFD over an 8-bit parallel bus on boards with 5V GPIO.",
   "keywords": [
     "display",
     "vfd",

@@ -75,7 +75,7 @@ struct ArduinoWriteTiming {
 
 }  // namespace detail
 
-// D0..D7 in order, then PBUSY, /WR and /RESET. Use native 5 V GPIO.
+// D0..D7 in order, then PBUSY, /WR and /RESET. Use native 5V GPIO.
 template <uint32_t D0, uint32_t D1, uint32_t D2, uint32_t D3, uint32_t D4,
           uint32_t D5, uint32_t D6, uint32_t D7, uint32_t BusyPin,
           uint32_t WritePin, uint32_t ResetPin>

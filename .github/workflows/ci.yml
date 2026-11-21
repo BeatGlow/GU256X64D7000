@@ -56,7 +56,7 @@ jobs:
           - name: Mega 2560
             fqbn: arduino:avr:mega:cpu=atmega2560
             core: arduino:avr@1.8.8
-          - name: Pro Micro 5 V
+          - name: Pro Micro 5V
             fqbn: SparkFun:avr:promicro:cpu=16MHzatmega32U4
             core: SparkFun:avr@1.1.13
           - name: Uno R4 Minima
