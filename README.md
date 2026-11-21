@@ -1,11 +1,12 @@
 # GU256X64D7000 Arduino library
 
-Drive a Noritake GU256X64D-7000 VFD from an Arduino with native 5 V GPIO.
-Choose the pins for the 8-bit parallel bus in your sketch. On the ATmega4809,
-the library can write directly to the ports for faster transfers.
+Drive the Noritake GU256X64D-7000 VFD from an Arduino board with native
+5 V GPIO. Choose the pins for the 8-bit parallel bus in your sketch. See
+the [board wiring](#wiring-diagrams-for-the-standard-examples) for examples
+and power connections. The VFD needs its own regulated 5 V supply.
 
-The VFD needs its own regulated 5 V supply. See the
-[board wiring](#wiring-diagrams-for-the-standard-examples).
+The library also has an optional direct-port mode for faster writes on
+the ATmega4809.
 
 ## Table of contents
 
