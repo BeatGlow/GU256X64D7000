@@ -34,23 +34,37 @@ jobs:
           library-manager: submit
 
   examples:
-    name: ${{ matrix.sketch }} on ${{ matrix.board }}
+    name: ${{ matrix.sketch }} on ${{ matrix.board.name }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - sketch: HelloVFD
-            board: Nano Every
+        sketch: [HelloVFD, BitmapVFD]
+        board:
+          - name: Nano Every
             fqbn: arduino:megaavr:nona4809:mode=off
-          - sketch: BitmapVFD
-            board: Nano Every
-            fqbn: arduino:megaavr:nona4809:mode=off
-          - sketch: HelloVFD
-            board: Uno WiFi Rev2
+            core: arduino:megaavr@1.8.8
+          - name: Uno WiFi Rev2
             fqbn: arduino:megaavr:uno2018
+            core: arduino:megaavr@1.8.8
+          - name: Uno R3
+            fqbn: arduino:avr:uno
+            core: arduino:avr@1.8.8
+          - name: Mega 2560
+            fqbn: arduino:avr:mega:cpu=atmega2560
+            core: arduino:avr@1.8.8
+          - name: Pro Micro 5 V
+            fqbn: SparkFun:avr:promicro:cpu=16MHzatmega32U4
+            core: SparkFun:avr@1.1.13
+          - name: Uno R4 Minima
+            fqbn: arduino:renesas_uno:minima
+            core: arduino:renesas_uno@1.5.3
+    env:
+      SPARKFUN_INDEX: https://raw.githubusercontent.com/sparkfun/Arduino_Boards/main/IDE_Board_Manager/package_sparkfun_index.json
     steps:
       - uses: actions/checkout@v5
       - uses: arduino/setup-arduino-cli@v2.1.0
-      - run: arduino-cli core install arduino:megaavr@1.8.8
-      - run: arduino-cli compile --fqbn "${{ matrix.fqbn }}" --library . "examples/${{ matrix.sketch }}"
+      - if: matrix.board.core == 'SparkFun:avr@1.1.13'
+        run: arduino-cli core install arduino:avr@1.8.8
+      - run: arduino-cli core install "${{ matrix.board.core }}" --additional-urls "$SPARKFUN_INDEX"
+      - run: arduino-cli compile --fqbn "${{ matrix.board.fqbn }}" --library . "examples/${{ matrix.sketch }}"
