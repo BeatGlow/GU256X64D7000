@@ -2,20 +2,12 @@
 
 #include <stdint.h>
 
-struct VPORT_t {
-  uint8_t DIR, OUT, IN;
-};
+enum PinMode { OUTPUT, INPUT_PULLUP };
+enum PinStatus { LOW, HIGH };
 
-extern VPORT_t VPORTA, VPORTB, VPORTC, VPORTD, VPORTE, VPORTF;
-extern uint8_t mockPinControl[48];
-
-constexpr uint8_t PORT_PULLUPEN_bm = 8;
-constexpr unsigned PORTA_PIN0CTRL = 0, PORTB_PIN0CTRL = 8, PORTC_PIN0CTRL = 16;
-constexpr unsigned PORTD_PIN0CTRL = 24, PORTE_PIN0CTRL = 32,
-                   PORTF_PIN0CTRL = 40;
-
-#define _SFR_MEM_ADDR(reg) (reg)
-#define _SFR_MEM8(address) (::mockPinControl[(address)])
+void pinMode(uint32_t pin, PinMode mode);
+void digitalWrite(uint32_t pin, PinStatus value);
+PinStatus digitalRead(uint32_t pin);
 
 inline uint32_t millis() {
   static uint32_t tick;
@@ -23,3 +15,5 @@ inline uint32_t millis() {
 }
 
 inline void delay(uint32_t) {}
+
+inline void delayMicroseconds(uint32_t) {}

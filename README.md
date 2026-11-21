@@ -1,9 +1,7 @@
 # GU256X64D7000 Arduino library
 
 Drive the Noritake GU256X64D-7000 over its 8-bit parallel interface from
-an ATmega4809 board using an Arduino megaAVR core. The library includes
-the VFD bus driver. The SPI and USB host protocol lives in the
-[Nano Every proxy sketch](https://github.com/BeatGlow/display/tree/main/support/gu256x64d7000_proxy).
+an Arduino board with native 5 V GPIO on all 11 VFD signals.
 
 ## Install
 
@@ -17,8 +15,11 @@ Arduino IDE lists these sketches under the library's examples.
 
 - [HelloVFD](examples/HelloVFD/HelloVFD.ino) clears the display and writes
   built-in text. It includes alternate wiring for the Uno WiFi Rev2.
-- [BitmapVFD](examples/BitmapVFD/BitmapVFD.ino) draws a centered 16×16 bitmap
-  with Nano Every wiring. For another board, substitute its wiring type.
+- [BitmapVFD](examples/BitmapVFD/BitmapVFD.ino) draws a centered 16×16 bitmap.
+
+Both examples select direct port wiring on the Nano Every and Uno WiFi
+Rev2. The portable examples use Uno R3, Mega 2560, Uno R4 Minima, or
+SparkFun Pro Micro 5 V / 16 MHz pins.
 
 ## Common operations
 
@@ -44,17 +45,81 @@ cursor advance and line wrapping. All coordinates use native VFD
 units. X counts columns and Y counts bands of eight pixels. The current
 VFD window determines which part of display memory is visible.
 
-Supply one bitmap byte per column per band, column first and top band
-first. Bit 7 is the top pixel. For array arguments, `drawBitmap` infers
-the byte count. For pointers, pass the byte count after the data pointer.
-Use `beginBitmap()` and `writeBytes()` to stream the data yourself.
-`command()` accepts raw controller commands.
+## Bitmap format
+
+A bitmap contains one bit per pixel. Pack each vertical group of eight
+pixels into a byte. Bit 7 is the top pixel and bit 0 is the bottom.
+A 1 is a set pixel and a 0 is a clear pixel in the default write mode.
+
+```text
+Bit number:   7   6   5   4   3   2   1   0
+            +---+---+---+---+---+---+---+---+
+Pixel row:  | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |  within one band
+            +---+---+---+---+---+---+---+---+
+              ^                           ^
+              top                         bottom
+```
+
+Write all bands for the leftmost column from top to bottom, then move
+one column right. Given zero-based pixel coordinates `px` and `py`
+within the bitmap, its byte offset is `px * bands + py / 8` and its bit
+mask is `0x80 >> (py % 8)`. A bitmap is exactly `columns * bands` bytes
+and `bands * 8` pixels high. For heights that are not multiples of
+eight, round up to a whole band and supply the pixels for the extra rows.
+
+The example below is two columns wide and 16 pixels high. The four
+bytes travel in numbered order. Each cell shows one byte as eight
+pixels, read from top to bottom.
+
+```text
+                         left column          right column
+                     +-------------------+-------------------+
+  first band (0..7)  | [0] 80  #.......  | [2] FF  ########  |
+                     +-------------------+-------------------+
+ second band (8..15) | [1] 01  .......#  | [3] 00  ........  |
+                     +-------------------+-------------------+
+
+  Wire order:  80 01 FF 00                  # set, . clear
+```
+
+```cpp
+const uint8_t pixels[] = {0x80, 0x01, 0xff, 0x00};
+vfd.drawBitmap(120, 3, 2, 2, pixels);
+```
+
+The call places the upper-left pixel at column 120, band 3 (pixel
+row 24). The rectangle must fit within the controller's 512 columns
+and eight bands of display memory. The current window determines
+which part of that memory appears on the 256 × 64 panel.
+
+The array overload infers the byte count. For a pointer, pass the
+count after the pointer. To stream a bitmap, call `setCursor()` and
+`beginBitmap(columns, bands)`, then use `writeBytes()` or `write()` to
+send exactly the same number of bytes in the same order. `command()`
+accepts raw controller commands.
 
 ## Set the wiring
 
-Use the AVR port letters and bit numbers from your board's pinout.
-Choose 11 available GPIOs. Avoid pins reserved for the board's peripherals
-or clock. The default constructor selects the Nano Every wiring.
+Choose 11 available Arduino GPIOs that operate at 5 V. Pass the pins in
+D0–D7, PBUSY, /WR, /RESET order.
+
+```cpp
+#include <GU256X64D7000.h>
+
+using BoardWiring = gu256x64d7000::ArduinoWiring<2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12>;
+gu256x64d7000::Display<BoardWiring> vfd;
+```
+
+On the SparkFun Pro Micro 5 V / 16 MHz, use `A0` and `A1` in place
+of pins 11 and 12. Connect board and display grounds, power the VFD
+from its own regulated 5 V supply, tie /RD high, and pull /WR and /RESET
+high so they stay inactive during MCU reset.
+
+### ATmega4809 direct-port wiring
+
+Use AVR port letters and bit numbers from the board pinout. Avoid pins
+reserved for the board's peripherals or clock. `Display<>` selects the
+Nano Every wiring on this MCU.
 
 | Signal | ATmega4809 port bits | Nano Every pins |
 | --- | --- | --- |
@@ -63,10 +128,6 @@ or clock. The default constructor selects the Nano Every wiring.
 | PBUSY | PF4 | D6 |
 | /WR | PC6 | D4 |
 | /RESET | PA0 | D2 |
-
-Use the VFD's PBUSY output and tie /RD high. Connect the Nano and VFD
-grounds. Power the VFD from its own regulated 5 V supply and pull /WR
-and /RESET up to the VFD supply so they stay inactive during MCU reset.
 
 Pass a different wiring type to the constructor when the board uses
 other port bits. The type lets the compiler resolve every register and
@@ -98,20 +159,17 @@ Choose the data bus type to match the wiring.
   order. It still writes the AVR virtual ports directly. Scattered
   wiring takes more instructions to assemble the output bytes.
 
-`writeBytes` captures the unrelated output bits once before sending.
+With direct-port wiring, `writeBytes` captures the unrelated output bits
+once before sending.
 Keep other code, including interrupt handlers, from changing output
 latches on those ports during a burst. `write` captures them per byte.
 Both wait for PBUSY before driving data and strobing /WR. The caller
 handles a timeout by resetting and reinitializing the panel before retrying
 a partially transmitted command.
 
-The proxy benchmark uses the Nano Every wiring at 16 MHz. On a different
-board, use a logic analyzer to verify PBUSY and /WR timing and measure
-the rate with the chosen wiring.
-
 ## Development
 
 Install [pre-commit](https://pre-commit.com/) and run `pre-commit install`.
 Run `pre-commit run --all-files` to format the code and test the command
-API with a host C++ compiler. CI also checks Library Manager compliance
-and compiles the examples against the Arduino megaAVR core.
+API with a host C++ compiler. CI checks Library Manager compliance and compiles both examples for
+the six boards listed above.
