@@ -179,5 +179,6 @@ a partially transmitted command.
 
 Install [pre-commit](https://pre-commit.com/) and run `pre-commit install`.
 Run `pre-commit run --all-files` to format the code and test the command
-API with a host C++ compiler. CI checks Library Manager compliance and compiles both examples for
-the six boards listed above.
+API with a host C++ compiler. In CI, the hook and Library Manager checks
+run first. Both examples then compile across the six boards in parallel.
+The emulator and PlatformIO matrices run after the Arduino builds pass.
