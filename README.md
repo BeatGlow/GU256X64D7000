@@ -21,6 +21,14 @@ Both examples select direct port wiring on the Nano Every and Uno WiFi
 Rev2. The portable examples use Uno R3, Mega 2560, Uno R4 Minima, or
 SparkFun Pro Micro 5 V / 16 MHz pins.
 
+For PlatformIO, choose `framework = arduino` and add the repository to
+your project's `lib_deps`.
+
+```ini
+lib_deps =
+    https://github.com/BeatGlow/GU256X64D7000.git
+```
+
 ## Common operations
 
 Call `begin()` to configure the pins, then `initialize()` to pulse

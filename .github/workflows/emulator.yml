@@ -1,0 +1,77 @@
+name: VFD emulator tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  simulate:
+    name: Bus contract on ${{ matrix.board }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - board: uno
+            fqbn: arduino:avr:uno
+            core: arduino:avr@1.8.8
+            emulator: simavr
+          - board: mega
+            fqbn: arduino:avr:mega:cpu=atmega2560
+            core: arduino:avr@1.8.8
+            emulator: simavr
+          - board: promicro
+            fqbn: SparkFun:avr:promicro:cpu=16MHzatmega32U4
+            core: SparkFun:avr@1.1.13
+            emulator: simavr
+          - board: uno-r4
+            fqbn: arduino:renesas_uno:minima
+            core: arduino:renesas_uno@1.5.3
+            emulator: renode
+    steps:
+      - uses: actions/checkout@v5
+      - uses: arduino/setup-arduino-cli@v2.1.0
+      - name: Install Pro Micro's Arduino AVR dependency
+        if: matrix.board == 'promicro'
+        run: arduino-cli core install arduino:avr@1.8.8
+      - name: Install board core
+        env:
+          CORE: ${{ matrix.core }}
+          SPARKFUN_INDEX: https://raw.githubusercontent.com/sparkfun/Arduino_Boards/main/IDE_Board_Manager/package_sparkfun_index.json
+        run: arduino-cli core install "$CORE" --additional-urls "$SPARKFUN_INDEX"
+      - name: Run simavr contract
+        if: matrix.emulator == 'simavr'
+        shell: bash
+        env:
+          BOARD: ${{ matrix.board }}
+          FQBN: ${{ matrix.fqbn }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libsimavr-dev libelf-dev
+          mkdir -p "$RUNNER_TEMP/bus"
+          arduino-cli compile --fqbn "$FQBN" --library . --output-dir "$RUNNER_TEMP/bus" extras/BusContract
+          cc -std=c11 -Wall -Wextra -Werror tests/simavr/bus.c $(pkg-config --cflags --libs simavr) -o "$RUNNER_TEMP/bus/check"
+          "$RUNNER_TEMP/bus/check" "$BOARD" "$RUNNER_TEMP/bus/BusContract.ino.hex" 2>&1 | tee "$RUNNER_TEMP/bus/trace.txt"
+      - name: Run Renode contract
+        if: matrix.emulator == 'renode'
+        shell: bash
+        env:
+          FQBN: ${{ matrix.fqbn }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/renode" "$RUNNER_TEMP/bus"
+          curl --fail --silent --show-error --location https://github.com/renode/renode/releases/download/v1.17.0/renode-1.17.0.linux-portable.tar.gz |
+            tar -xz --strip-components=1 -C "$RUNNER_TEMP/renode"
+          arduino-cli compile --fqbn "$FQBN" --library . --build-property compiler.cpp.extra_flags=-DNO_USB --output-dir "$RUNNER_TEMP/bus" extras/BusContract
+          python3 tests/renode/run.py "$RUNNER_TEMP/renode/renode" "$RUNNER_TEMP/bus/BusContract.ino.elf" "$RUNNER_TEMP/bus"
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: ${{ matrix.emulator }}-${{ matrix.board }}-trace
+          path: |
+            ${{ runner.temp }}/bus/trace.txt
+            ${{ runner.temp }}/bus/uno-r4.log
+          if-no-files-found: ignore
