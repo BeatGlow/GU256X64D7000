@@ -35,6 +35,9 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: arduino/setup-arduino-cli@v2.1.0
+      - name: Install Pro Micro's Arduino AVR dependency
+        if: matrix.board == 'promicro'
+        run: arduino-cli core install arduino:avr@1.8.8
       - name: Install board core
         env:
           CORE: ${{ matrix.core }}
