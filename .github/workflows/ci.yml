@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   pull_request:
+  merge_group:
+    types: [checks_requested]
 
 permissions:
   contents: read
@@ -34,6 +36,7 @@ jobs:
           library-manager: submit
 
   examples:
+    needs: [quality, library-manager]
     name: ${{ matrix.sketch }} on ${{ matrix.board.name }}
     runs-on: ubuntu-latest
     strategy:
@@ -68,3 +71,13 @@ jobs:
         run: arduino-cli core install arduino:avr@1.8.8
       - run: arduino-cli core install "${{ matrix.board.core }}" --additional-urls "$SPARKFUN_INDEX"
       - run: arduino-cli compile --fqbn "${{ matrix.board.fqbn }}" --library . "examples/${{ matrix.sketch }}"
+
+  emulator-tests:
+    name: Emulator tests
+    needs: examples
+    uses: ./.github/workflows/emulator.yml
+
+  platformio-packages:
+    name: PlatformIO packages
+    needs: examples
+    uses: ./.github/workflows/platformio.yml
