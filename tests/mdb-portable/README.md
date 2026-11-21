@@ -1,6 +1,6 @@
 # Portable GPIO tests in MPLAB X MDB
 
-Run the test on the Arduino Uno R3, Arduino Mega 2560, and 5 V / 16 MHz
+Run the test on the Arduino Uno R3, Arduino Mega 2560, and 5V / 16 MHz
 SparkFun Pro Micro. Install MPLAB X with the classic AVR simulator,
 Arduino CLI with the Arduino AVR Boards core, and the SparkFun AVR Boards
 core. Set the SparkFun package index when installing it.

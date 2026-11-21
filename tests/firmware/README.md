@@ -16,7 +16,7 @@ use its Board Manager index.
 | --- | --- | --- |
 | Uno R3 | `uno` | `arduino:avr:uno` |
 | Mega 2560 | `mega` | `arduino:avr:mega:cpu=atmega2560` |
-| SparkFun Pro Micro 5 V / 16 MHz | `promicro` | `SparkFun:avr:promicro:cpu=16MHzatmega32U4` |
+| SparkFun Pro Micro 5V / 16 MHz | `promicro` | `SparkFun:avr:promicro:cpu=16MHzatmega32U4` |
 
 Run from the library root with a writable output directory. Select the
 matching `board` and `fqbn` from the table.

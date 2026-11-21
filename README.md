@@ -1,9 +1,9 @@
 # GU256X64D7000 Arduino library
 
 Drive the Noritake GU256X64D-7000 VFD from an Arduino board with native
-5 V GPIO. Choose the pins for the 8-bit parallel bus in your sketch. See
+5V GPIO. Choose the pins for the 8-bit parallel bus in your sketch. See
 the [board wiring](#wiring-diagrams-for-the-standard-examples) for examples
-and power connections. The VFD needs its own regulated 5 V supply.
+and power connections. The VFD needs its own regulated 5V supply.
 
 The library also has an optional direct-port mode for faster writes on
 the ATmega4809.
@@ -18,7 +18,7 @@ the ATmega4809.
   - [Wiring diagrams for the standard examples](#wiring-diagrams-for-the-standard-examples)
     - [Arduino Uno R3](#arduino-uno-r3)
     - [Arduino Mega 2560 Rev3](#arduino-mega-2560-rev3)
-    - [SparkFun Pro Micro 5 V / 16 MHz](#sparkfun-pro-micro-5-v--16-mhz)
+    - [SparkFun Pro Micro 5V / 16 MHz](#sparkfun-pro-micro-5v--16-mhz)
     - [Arduino Nano Every](#arduino-nano-every)
     - [Arduino Uno WiFi Rev2](#arduino-uno-wifi-rev2)
     - [Arduino Uno R4 Minima](#arduino-uno-r4-minima)
@@ -41,7 +41,7 @@ Arduino IDE lists these sketches under the library's examples.
 
 Both examples select direct port wiring on the Nano Every and Uno WiFi
 Rev2. The portable examples use Uno R3, Mega 2560, Uno R4 Minima, or
-SparkFun Pro Micro 5 V / 16 MHz pins.
+SparkFun Pro Micro 5V / 16 MHz pins.
 
 For PlatformIO, choose `framework = arduino` and add the repository to
 your project's `lib_deps`.
@@ -57,7 +57,7 @@ Open [SdCardBitmap](examples/SdCardBitmap) and install the
 [Arduino SD library](https://docs.arduino.cc/libraries/sd/). Copy
 `IMAGE.BMP` to the root of a FAT16- or FAT32-formatted card.
 
-The example uses an SD module compatible with 5 V Arduino boards.
+The example uses an SD module compatible with 5V Arduino boards.
 Connect the module to the board's hardware SPI pins and connect its CS
 to D10. On an Uno R3, SPI uses D11 (MOSI), D12 (MISO), and D13 (SCK).
 This example uses the following VFD wiring to leave those pins free.
@@ -165,7 +165,7 @@ accepts raw controller commands.
 
 ## Set the wiring
 
-Choose 11 available Arduino GPIOs that operate at 5 V. Pass the pins in
+Choose 11 available Arduino GPIOs that operate at 5V. Pass the pins in
 D0–D7, PBUSY, /WR, /RESET order.
 
 ```cpp
@@ -175,7 +175,7 @@ using BoardWiring = gu256x64d7000::ArduinoWiring<2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 gu256x64d7000::Display<BoardWiring> vfd;
 ```
 
-On the SparkFun Pro Micro 5 V / 16 MHz, use `A0` and `A1` in place
+On the SparkFun Pro Micro 5V / 16 MHz, use `A0` and `A1` in place
 of pins 11 and 12. Use the diagrams below for the matching board and VFD wiring.
 
 ### Wiring diagrams for the standard examples
@@ -188,21 +188,21 @@ GU256X64D-7000 PCB (PW-1315-101), with signal terminals grouped by function.
 | --- | --- | --- | --- | --- |
 | [Arduino Uno R3](#arduino-uno-r3) | D2–D9 | D10 | D11 | D12 |
 | [Arduino Mega 2560 Rev3](#arduino-mega-2560-rev3) | D2–D9 | D10 | D11 | D12 |
-| [SparkFun Pro Micro 5 V / 16 MHz](#sparkfun-pro-micro-5-v--16-mhz) | D2–D9 | D10 | A0 | A1 |
+| [SparkFun Pro Micro 5V / 16 MHz](#sparkfun-pro-micro-5v--16-mhz) | D2–D9 | D10 | A0 | A1 |
 | [Arduino Nano Every](#arduino-nano-every) | A3, A2, A1, A0, A6, A7, D9, D10 | D6 | D4 | D2 |
 | [Arduino Uno WiFi Rev2](#arduino-uno-wifi-rev2) | A0–A5, D9, D10 | D3 | D5 | D7 |
 | [Arduino Uno R4 Minima](#arduino-uno-r4-minima) | D2–D9 | D10 (see warning) | D11 | D12 |
 
 > [!WARNING]
-> Power the VFD from an **external regulated 5 V DC supply** sized for
+> Power the VFD from an **external regulated 5V DC supply** sized for
 > startup inrush. Join Arduino GND, VFD GND, and the supply negative.
-> Leave the Arduino 5 V pin open. **Tie `/RD` high directly to the VFD
-> supply's +5 V** for write-only operation.
+> Leave the Arduino 5V pin open. **Tie `/RD` high directly to the VFD
+> supply's +5V** for write-only operation.
 > [Noritake hardware specification](https://www.infinite-electronics.kr/datasheet/da-GU256X64D-7000.pdf)
 
 > [!NOTE]
 > The **10 kΩ pull-ups on `/WR` and `/RESET` are optional**. If fitted,
-> connect them to the VFD supply's +5 V. They hold both lines high while
+> connect them to the VFD supply's +5V. They hold both lines high while
 > the Arduino pins are high-impedance during boot or reset. After
 > `begin()`, the library drives both lines high when idle.
 
@@ -217,37 +217,37 @@ the serial interface CN2. Match the connector labels to your PCB revision.
 
 #### Arduino Uno R3
 
-[![Arduino Uno R3 VFD wiring and external 5 V supply](extras/wiring/arduino-uno-r3.svg)](extras/wiring/arduino-uno-r3.svg)
+[![Arduino Uno R3 VFD wiring and external 5V supply](extras/wiring/arduino-uno-r3.svg)](extras/wiring/arduino-uno-r3.svg)
 
 #### Arduino Mega 2560 Rev3
 
-[![Arduino Mega 2560 Rev3 VFD wiring and external 5 V supply](extras/wiring/arduino-mega-2560.svg)](extras/wiring/arduino-mega-2560.svg)
+[![Arduino Mega 2560 Rev3 VFD wiring and external 5V supply](extras/wiring/arduino-mega-2560.svg)](extras/wiring/arduino-mega-2560.svg)
 
-#### SparkFun Pro Micro 5 V / 16 MHz
+#### SparkFun Pro Micro 5V / 16 MHz
 
-[![SparkFun Pro Micro 5 V / 16 MHz VFD wiring and external 5 V supply](extras/wiring/sparkfun-pro-micro-5v.svg)](extras/wiring/sparkfun-pro-micro-5v.svg)
+[![SparkFun Pro Micro 5V / 16 MHz VFD wiring and external 5V supply](extras/wiring/sparkfun-pro-micro-5v.svg)](extras/wiring/sparkfun-pro-micro-5v.svg)
 
 #### Arduino Nano Every
 
-[![Arduino Nano Every VFD wiring and external 5 V supply](extras/wiring/arduino-nano-every.svg)](extras/wiring/arduino-nano-every.svg)
+[![Arduino Nano Every VFD wiring and external 5V supply](extras/wiring/arduino-nano-every.svg)](extras/wiring/arduino-nano-every.svg)
 
 #### Arduino Uno WiFi Rev2
 
-[![Arduino Uno WiFi Rev2 VFD wiring and external 5 V supply](extras/wiring/arduino-uno-wifi-rev2.svg)](extras/wiring/arduino-uno-wifi-rev2.svg)
+[![Arduino Uno WiFi Rev2 VFD wiring and external 5V supply](extras/wiring/arduino-uno-wifi-rev2.svg)](extras/wiring/arduino-uno-wifi-rev2.svg)
 
 #### Arduino Uno R4 Minima
 
 > [!WARNING]
 > PBUSY is not guaranteed to read high with a direct connection. The VFD
 > specifies a minimum PBUSY high of 3.8 V at a 1.5 mA load, while the Uno
-> R4 Minima's D10 (P112) requires 4.0 V at nominal 5 V. If D10 misses a
+> R4 Minima's D10 (P112) requires 4.0 V at nominal 5V. If D10 misses a
 > busy assertion, the library can strobe /WR while the VFD is still busy.
 > The SD example's A0 (P014) input has the same 4.0 V requirement at nominal
-> 5 V. [Noritake hardware specification](https://www.infinite-electronics.kr/datasheet/da-GU256X64D-7000.pdf),
+> 5V. [Noritake hardware specification](https://www.infinite-electronics.kr/datasheet/da-GU256X64D-7000.pdf),
 > [Arduino pinout](https://docs.arduino.cc/resources/pinouts/ABX00080-full-pinout.pdf),
 > [Renesas RA4M1 datasheet, Table 2.4](https://www.renesas.com/en/document/dst/ra4m1-group-datasheet)
 
-[![Arduino Uno R4 Minima VFD wiring and external 5 V supply](extras/wiring/arduino-uno-r4-minima.svg)](extras/wiring/arduino-uno-r4-minima.svg)
+[![Arduino Uno R4 Minima VFD wiring and external 5V supply](extras/wiring/arduino-uno-r4-minima.svg)](extras/wiring/arduino-uno-r4-minima.svg)
 
 ### ATmega4809 direct-port wiring
 

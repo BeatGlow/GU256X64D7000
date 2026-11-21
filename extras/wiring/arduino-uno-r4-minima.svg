@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1090" viewBox="0 0 1440 1090" role="img" aria-labelledby="title description">
   <title id="title">Arduino Uno R4 Minima with the GU256X64D-7000</title>
-  <desc id="description">Component-side Arduino and GU256X64D-7000 PW-1315-101 rear view. Arduino D2 to VFD D0 (CN3 · 7), Arduino D3 to VFD D1 (CN3 · 8), Arduino D4 to VFD D2 (CN3 · 9), Arduino D5 to VFD D3 (CN3 · 10), Arduino D6 to VFD D4 (CN3 · 11), Arduino D7 to VFD D5 (CN3 · 12), Arduino D8 to VFD D6 (CN3 · 13), Arduino D9 to VFD D7 (CN3 · 14), Arduino D10 to VFD PBUSY (CN3 · 3), Arduino D11 to VFD /WR (CN3 · 5), Arduino D12 to VFD /RESET (CN1 · 6). Arduino GND joins the external regulated 5 V PSU negative and VFD CN3 pin 1. The Arduino supply pin stays open. PSU positive goes to VFD CN3 pin 2, /RD at CN3 pin 6, and pull-up resistors for /WR and /RESET. Set JRB C–B for separate PBUSY at CN3 pin 3. CN3 pin 4 RS stays open. PBUSY is not guaranteed to read high on D10. The VFD output minimum is 3.8 V and D10 requires 4.0 V at a nominal 5 V supply.</desc>
+  <desc id="description">Component-side Arduino and GU256X64D-7000 PW-1315-101 rear view. Arduino D2 to VFD D0 (CN3 · 7), Arduino D3 to VFD D1 (CN3 · 8), Arduino D4 to VFD D2 (CN3 · 9), Arduino D5 to VFD D3 (CN3 · 10), Arduino D6 to VFD D4 (CN3 · 11), Arduino D7 to VFD D5 (CN3 · 12), Arduino D8 to VFD D6 (CN3 · 13), Arduino D9 to VFD D7 (CN3 · 14), Arduino D10 to VFD PBUSY (CN3 · 3), Arduino D11 to VFD /WR (CN3 · 5), Arduino D12 to VFD /RESET (CN1 · 6). Arduino GND joins the external regulated 5V PSU negative and VFD CN3 pin 1. The Arduino supply pin stays open. PSU positive goes to VFD CN3 pin 2, /RD at CN3 pin 6, and pull-up resistors for /WR and /RESET. Set JRB C–B for separate PBUSY at CN3 pin 3. CN3 pin 4 RS stays open. PBUSY is not guaranteed to read high on D10. The VFD output minimum is 3.8 V and D10 requires 4.0 V at a nominal 5V supply.</desc>
   <defs>
     <linearGradient id="glass" x2="0%" y2="100%">
       <stop stop-color="#13384a"/>
@@ -199,22 +199,22 @@
   <text x="1128" y="612" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN1 · 6</text>
   <text x="996" y="670" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">/RD</text>
   <text x="1128" y="670" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN3 · 6</text>
-  <text x="996" y="713" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">+5 V</text>
+  <text x="996" y="713" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">+5V</text>
   <text x="1128" y="713" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN3 · 2</text>
   <text x="996" y="756" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">GND</text>
   <text x="1128" y="756" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN3 · 1</text>
   <rect x="791" y="865" width="165" height="79" rx="12" fill="#edebe5" stroke="#819096" stroke-width="2" />
   <rect x="798" y="873" width="152" height="63" rx="8" fill="#f4f5f6" stroke="none" stroke-width="1" />
-  <text x="877" y="881" fill="#c32c39" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" font-weight="800">+5 V</text>
+  <text x="877" y="881" fill="#c32c39" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" font-weight="800">+5V</text>
   <text x="899" y="935" fill="#202a35" text-anchor="end" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" font-weight="800">GND</text>
   <text x="873" y="903" fill="#132d40" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="810">External PSU</text>
-  <text x="873" y="921" fill="#365169" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="750">Regulated 5 V DC</text>
+  <text x="873" y="921" fill="#365169" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="750">Regulated 5V DC</text>
   <polyline points="866,865 866,589" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
   <polyline points="866,865 866,589" fill="none" stroke="#c32c39" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-net="psu-positive"/>
   <polyline points="866,665 976,665" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
   <polyline points="866,665 976,665" fill="none" stroke="#c32c39" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-net="psu-positive" data-signal="/RD"/>
   <polyline points="866,708 976,708" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
-  <polyline points="866,708 976,708" fill="none" stroke="#c32c39" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-net="psu-positive" data-signal="+5 V"/>
+  <polyline points="866,708 976,708" fill="none" stroke="#c32c39" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-net="psu-positive" data-signal="+5V"/>
   <polyline points="866,589 945,589 945,571" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
   <polyline points="866,589 945,589 945,571" fill="none" stroke="#c32c39" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-net="pull-up-/WR"/>
   <polyline points="866,624 947,624 947,607" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
@@ -290,7 +290,7 @@
   <rect x="83" y="739" width="647" height="112" rx="13" fill="#fff7e6" stroke="#b46c23" stroke-width="2" />
   <text x="104" y="772" fill="#693907" font-family="DejaVu Sans, Arial, sans-serif" font-size="22" font-weight="800">PBUSY is not guaranteed to read high</text>
   <text x="104" y="804" fill="#543715" font-family="DejaVu Sans, Arial, sans-serif" font-size="18">VFD PBUSY is specified down to 3.8 V when high.</text>
-  <text x="104" y="830" fill="#543715" font-family="DejaVu Sans, Arial, sans-serif" font-size="18">Uno R4 Minima D10 requires 4.0 V at nominal 5 V.</text>
+  <text x="104" y="830" fill="#543715" font-family="DejaVu Sans, Arial, sans-serif" font-size="18">Uno R4 Minima D10 requires 4.0 V at nominal 5V.</text>
   <text x="83" y="1019" fill="#132d40" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="650">Set JRB C–B for PBUSY on CN3 pin 3. Leave RS (CN3 pin 4) open.</text>
   <text x="83" y="1043" fill="#365169" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="550">Arduino and VFD power share a ground. 10 kΩ is an example pull-up value.</text>
 </svg>
