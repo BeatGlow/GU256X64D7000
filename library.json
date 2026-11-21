@@ -28,6 +28,7 @@
       "LICENSE.md",
       "README.md",
       "examples",
+      "extras/wiring",
       "library.json",
       "library.properties",
       "src"

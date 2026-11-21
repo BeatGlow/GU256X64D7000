@@ -154,9 +154,39 @@ gu256x64d7000::Display<BoardWiring> vfd;
 ```
 
 On the SparkFun Pro Micro 5 V / 16 MHz, use `A0` and `A1` in place
-of pins 11 and 12. Connect board and display grounds, power the VFD
-from its own regulated 5 V supply, tie /RD high, and pull /WR and /RESET
-high so they stay inactive during MCU reset.
+of pins 11 and 12. Use the diagrams below for the matching board and VFD wiring.
+
+### Wiring diagrams for the standard examples
+
+[![Arduino Uno R3 to the VFD with a separate external 5 V supply](extras/wiring/arduino-uno-r3.svg)](extras/wiring/arduino-uno-r3.svg)
+
+The diagrams show the Arduino from the component side with its USB connector
+at the top. Each uses the same rear-view mockup of the photographed
+GU256X64D-7000 PCB (PW-1315-101), with signal terminals grouped by function.
+
+| Board | VFD D0–D7 connections in order | PBUSY | /WR | /RESET |
+| --- | --- | --- | --- | --- |
+| [Arduino Uno R3](extras/wiring/arduino-uno-r3.svg) | D2–D9 | D10 | D11 | D12 |
+| [Arduino Mega 2560 Rev3](extras/wiring/arduino-mega-2560.svg) | D2–D9 | D10 | D11 | D12 |
+| [SparkFun Pro Micro 5 V / 16 MHz](extras/wiring/sparkfun-pro-micro-5v.svg) | D2–D9 | D10 | A0 | A1 |
+| [Arduino Nano Every](extras/wiring/arduino-nano-every.svg) | A3, A2, A1, A0, A6, A7, D9, D10 | D6 | D4 | D2 |
+| [Arduino Uno WiFi Rev2](extras/wiring/arduino-uno-wifi-rev2.svg) | A0–A5, D9, D10 | D3 | D5 | D7 |
+
+Power the VFD from an **external regulated 5 V DC supply** sized for
+startup inrush. Join Arduino GND, VFD GND, and the supply negative.
+Leave the Arduino 5 V pin open. Tie /RD high from the VFD supply and
+use that same supply for the /WR and /RESET pull-ups. The drawings use
+10 kΩ as an example pull-up value.
+[Noritake hardware specification](https://www.infinite-electronics.kr/datasheet/da-GU256X64D-7000.pdf)
+
+On the pictured rear layout, use the shrouded **CN3** parallel header for
+data, power, and /WR. Set JRB C–B to route PBUSY to CN3 pin 3. Leave
+RS (CN3 pin 4) and the small CN2 connector open. Use the CN1 serial pad
+numbered 6 for /RESET. Locate pin 1 on the physical connector before
+wiring. Earlier -7000 documentation calls the parallel interface CN1 and
+the serial interface CN2. Match the connector labels to your PCB revision.
+[Noritake earlier connector guide](https://www.noritake-itron.com/site2017/images/Specs/VFD/CDG/GU256x64D-7000x/GU256x64D-7000-03.pdf),
+[Noritake CN3 connector layout](https://www.mouser.com/catalog/specsheets/Noritake_08012022_s-gu256x64d-7000bx_e00%20%281%29.pdf)
 
 ### ATmega4809 direct-port wiring
 
