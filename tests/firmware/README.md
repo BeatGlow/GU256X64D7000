@@ -26,7 +26,7 @@ board=uno
 fqbn=arduino:avr:uno
 build=/path/to/emulator-build
 mkdir -p "$build"
-arduino-cli compile --fqbn "$fqbn" --library . --output-dir "$build" tests/firmware/BusContract
+arduino-cli compile --fqbn "$fqbn" --library . --output-dir "$build" extras/BusContract
 cc -std=c11 -Wall -Wextra -Werror tests/simavr/bus.c \
   $(pkg-config --cflags --libs simavr) -o "$build/check"
 "$build/check" "$board" "$build/BusContract.ino.hex"
@@ -47,7 +47,7 @@ build=/path/to/emulator-build
 mkdir -p "$build"
 arduino-cli compile --fqbn arduino:renesas_uno:minima --library . \
   --build-property compiler.cpp.extra_flags=-DNO_USB --output-dir "$build" \
-  tests/firmware/BusContract
+  extras/BusContract
 python3 tests/renode/run.py renode "$build/BusContract.ino.elf" "$build"
 ```
 
