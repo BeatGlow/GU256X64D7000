@@ -29,6 +29,41 @@ lib_deps =
     https://github.com/BeatGlow/GU256X64D7000.git
 ```
 
+## Draw a BMP from an SD card
+
+Open [SdCardBitmap](examples/SdCardBitmap) and install the
+[Arduino SD library](https://docs.arduino.cc/libraries/sd/). Copy
+`IMAGE.BMP` to the root of a FAT16- or FAT32-formatted card.
+
+The example uses an SD module compatible with 5 V Arduino boards.
+Connect the module to the board's hardware SPI pins and connect its CS
+to D10. On an Uno R3, SPI uses D11 (MOSI), D12 (MISO), and D13 (SCK).
+This example uses the following VFD wiring to leave those pins free.
+
+| VFD signal | Arduino pin |
+| --- | --- |
+| D0–D7 | D2–D9, in order |
+| PBUSY | A0 |
+| /WR | A1 |
+| /RESET | A2 |
+
+Use an uncompressed Windows BMP, either 1-bit with two palette entries
+or 24-bit color, up to 256 pixels wide and 64 pixels tall. The lighter
+palette entry lights the VFD in a 1-bit image. In a 24-bit image,
+pixels with weighted brightness of 128 or higher light up. The sketch
+draws at the top left and fills any unused rows in its last eight-row
+band with dark pixels.
+
+For example, use ImageMagick to make a compatible monochrome file.
+
+```sh
+magick input.png -resize '256x64>' -monochrome -type bilevel -compress none BMP3:IMAGE.BMP
+```
+
+The sketch reads the card by row and sends one eight-row band at a
+time, using a maximum of 256 bytes for the band. Open the serial
+monitor at 115200 baud for status.
+
 ## Common operations
 
 Call `begin()` to configure the pins, then `initialize()` to pulse
