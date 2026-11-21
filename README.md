@@ -1,7 +1,9 @@
 # GU256X64D7000 Arduino library
 
-Drive the Noritake GU256X64D-7000 over its 8-bit parallel interface from
-an Arduino board with native 5 V GPIO on all 11 VFD signals.
+Drive the Noritake GU256X64D-7000 VFD over its 8-bit parallel interface
+using Arduino pin numbers on boards with native 5 V GPIO. The ATmega4809
+has a faster direct-port path. Power the display from an external 5 V supply
+and check the [board wiring](#wiring-diagrams-for-the-standard-examples).
 
 ## Table of contents
 
