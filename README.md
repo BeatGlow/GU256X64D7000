@@ -3,6 +3,23 @@
 Drive the Noritake GU256X64D-7000 over its 8-bit parallel interface from
 an Arduino board with native 5 V GPIO on all 11 VFD signals.
 
+## Table of contents
+
+- [Install](#install)
+- [Draw a BMP from an SD card](#draw-a-bmp-from-an-sd-card)
+- [Common operations](#common-operations)
+- [Bitmap format](#bitmap-format)
+- [Set the wiring](#set-the-wiring)
+  - [Wiring diagrams for the standard examples](#wiring-diagrams-for-the-standard-examples)
+    - [Arduino Uno R3](#arduino-uno-r3)
+    - [Arduino Mega 2560 Rev3](#arduino-mega-2560-rev3)
+    - [SparkFun Pro Micro 5 V / 16 MHz](#sparkfun-pro-micro-5-v--16-mhz)
+    - [Arduino Nano Every](#arduino-nano-every)
+    - [Arduino Uno WiFi Rev2](#arduino-uno-wifi-rev2)
+    - [Arduino Uno R4 Minima](#arduino-uno-r4-minima)
+  - [ATmega4809 direct-port wiring](#atmega4809-direct-port-wiring)
+- [Development](#development)
+
 ## Install
 
 Copy this `GU256X64D7000` folder into the Arduino sketchbook's
@@ -158,19 +175,18 @@ of pins 11 and 12. Use the diagrams below for the matching board and VFD wiring.
 
 ### Wiring diagrams for the standard examples
 
-[![Arduino Uno R3 to the VFD with a separate external 5 V supply](extras/wiring/arduino-uno-r3.svg)](extras/wiring/arduino-uno-r3.svg)
-
 The diagrams show the Arduino from the component side with its USB connector
 at the top. Each uses the same rear-view mockup of the photographed
 GU256X64D-7000 PCB (PW-1315-101), with signal terminals grouped by function.
 
 | Board | VFD D0–D7 connections in order | PBUSY | /WR | /RESET |
 | --- | --- | --- | --- | --- |
-| [Arduino Uno R3](extras/wiring/arduino-uno-r3.svg) | D2–D9 | D10 | D11 | D12 |
-| [Arduino Mega 2560 Rev3](extras/wiring/arduino-mega-2560.svg) | D2–D9 | D10 | D11 | D12 |
-| [SparkFun Pro Micro 5 V / 16 MHz](extras/wiring/sparkfun-pro-micro-5v.svg) | D2–D9 | D10 | A0 | A1 |
-| [Arduino Nano Every](extras/wiring/arduino-nano-every.svg) | A3, A2, A1, A0, A6, A7, D9, D10 | D6 | D4 | D2 |
-| [Arduino Uno WiFi Rev2](extras/wiring/arduino-uno-wifi-rev2.svg) | A0–A5, D9, D10 | D3 | D5 | D7 |
+| [Arduino Uno R3](#arduino-uno-r3) | D2–D9 | D10 | D11 | D12 |
+| [Arduino Mega 2560 Rev3](#arduino-mega-2560-rev3) | D2–D9 | D10 | D11 | D12 |
+| [SparkFun Pro Micro 5 V / 16 MHz](#sparkfun-pro-micro-5-v--16-mhz) | D2–D9 | D10 | A0 | A1 |
+| [Arduino Nano Every](#arduino-nano-every) | A3, A2, A1, A0, A6, A7, D9, D10 | D6 | D4 | D2 |
+| [Arduino Uno WiFi Rev2](#arduino-uno-wifi-rev2) | A0–A5, D9, D10 | D3 | D5 | D7 |
+| [Arduino Uno R4 Minima](#arduino-uno-r4-minima) | D2–D9 | D10 (see warning) | D11 | D12 |
 
 Power the VFD from an **external regulated 5 V DC supply** sized for
 startup inrush. Join Arduino GND, VFD GND, and the supply negative.
@@ -187,6 +203,40 @@ wiring. Earlier -7000 documentation calls the parallel interface CN1 and
 the serial interface CN2. Match the connector labels to your PCB revision.
 [Noritake earlier connector guide](https://www.noritake-itron.com/site2017/images/Specs/VFD/CDG/GU256x64D-7000x/GU256x64D-7000-03.pdf),
 [Noritake CN3 connector layout](https://www.mouser.com/catalog/specsheets/Noritake_08012022_s-gu256x64d-7000bx_e00%20%281%29.pdf)
+
+#### Arduino Uno R3
+
+[![Arduino Uno R3 VFD wiring and external 5 V supply](extras/wiring/arduino-uno-r3.svg)](extras/wiring/arduino-uno-r3.svg)
+
+#### Arduino Mega 2560 Rev3
+
+[![Arduino Mega 2560 Rev3 VFD wiring and external 5 V supply](extras/wiring/arduino-mega-2560.svg)](extras/wiring/arduino-mega-2560.svg)
+
+#### SparkFun Pro Micro 5 V / 16 MHz
+
+[![SparkFun Pro Micro 5 V / 16 MHz VFD wiring and external 5 V supply](extras/wiring/sparkfun-pro-micro-5v.svg)](extras/wiring/sparkfun-pro-micro-5v.svg)
+
+#### Arduino Nano Every
+
+[![Arduino Nano Every VFD wiring and external 5 V supply](extras/wiring/arduino-nano-every.svg)](extras/wiring/arduino-nano-every.svg)
+
+#### Arduino Uno WiFi Rev2
+
+[![Arduino Uno WiFi Rev2 VFD wiring and external 5 V supply](extras/wiring/arduino-uno-wifi-rev2.svg)](extras/wiring/arduino-uno-wifi-rev2.svg)
+
+#### Arduino Uno R4 Minima
+
+> [!WARNING]
+> PBUSY is not guaranteed to read high with a direct connection. The VFD
+> specifies a minimum PBUSY high of 3.8 V at a 1.5 mA load, while the Uno
+> R4 Minima's D10 (P112) requires 4.0 V at nominal 5 V. If D10 misses a
+> busy assertion, the library can strobe /WR while the VFD is still busy.
+> The SD example's A0 (P014) input has the same 4.0 V requirement at nominal
+> 5 V. [Noritake hardware specification](https://www.infinite-electronics.kr/datasheet/da-GU256X64D-7000.pdf),
+> [Arduino pinout](https://docs.arduino.cc/resources/pinouts/ABX00080-full-pinout.pdf),
+> [Renesas RA4M1 datasheet, Table 2.4](https://www.renesas.com/en/document/dst/ra4m1-group-datasheet)
+
+[![Arduino Uno R4 Minima VFD wiring and external 5 V supply](extras/wiring/arduino-uno-r4-minima.svg)](extras/wiring/arduino-uno-r4-minima.svg)
 
 ### ATmega4809 direct-port wiring
 
