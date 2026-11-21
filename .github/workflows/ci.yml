@@ -64,5 +64,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: arduino/setup-arduino-cli@v2.1.0
+      - if: matrix.board.core == 'SparkFun:avr@1.1.13'
+        run: arduino-cli core install arduino:avr@1.8.8
       - run: arduino-cli core install "${{ matrix.board.core }}" --additional-urls "$SPARKFUN_INDEX"
       - run: arduino-cli compile --fqbn "${{ matrix.board.fqbn }}" --library . "examples/${{ matrix.sketch }}"
