@@ -190,10 +190,14 @@ GU256X64D-7000 PCB (PW-1315-101), with signal terminals grouped by function.
 
 Power the VFD from an **external regulated 5 V DC supply** sized for
 startup inrush. Join Arduino GND, VFD GND, and the supply negative.
-Leave the Arduino 5 V pin open. Tie /RD high from the VFD supply and
-use that same supply for the /WR and /RESET pull-ups. The drawings use
-10 kΩ as an example pull-up value.
+Leave the Arduino 5 V pin open. **Tie `/RD` high directly to the VFD
+supply's +5 V** for write-only operation.
 [Noritake hardware specification](https://www.infinite-electronics.kr/datasheet/da-GU256X64D-7000.pdf)
+
+The **10 kΩ pull-ups on `/WR` and `/RESET` are optional**. If fitted,
+connect them to the VFD supply's +5 V. They hold both lines high while
+the Arduino pins are high-impedance during boot or reset. After
+`begin()`, the library drives both lines high when idle.
 
 On the pictured rear layout, use the shrouded **CN3** parallel header for
 data, power, and /WR. Set JRB C–B to route PBUSY to CN3 pin 3. Leave
