@@ -58,7 +58,7 @@ def measure(args, library, name, board):
     work = args.output_dir / board / name
     work.mkdir(parents=True, exist_ok=True)
     build = work / "build"
-    sketch = Path(__file__).resolve().parent / "FastPath"
+    sketch = ROOT / "extras" / "mdb" / "FastPath"
     # The Uno WiFi Rev2 upload image expects a bootloader at 0x0.
     # SIM starts at reset without that bootloader.
     link_options = (
