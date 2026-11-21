@@ -47,6 +47,9 @@ This example uses the following VFD wiring to leave those pins free.
 | /WR | A1 |
 | /RESET | A2 |
 
+On the Uno R4 Minima, use the [PBUSY buffer](#wiring-diagrams-for-the-standard-examples)
+with its output connected to A0 for this sketch.
+
 Use an uncompressed Windows BMP, either 1-bit with two palette entries
 or 24-bit color, up to 256 pixels wide and 64 pixels tall. The lighter
 palette entry lights the VFD in a 1-bit image. In a 24-bit image,
@@ -154,9 +157,43 @@ gu256x64d7000::Display<BoardWiring> vfd;
 ```
 
 On the SparkFun Pro Micro 5 V / 16 MHz, use `A0` and `A1` in place
-of pins 11 and 12. Connect board and display grounds, power the VFD
-from its own regulated 5 V supply, tie /RD high, and pull /WR and /RESET
-high so they stay inactive during MCU reset.
+of pins 11 and 12. Follow the diagram for your board to wire the VFD
+and its power supply.
+
+### Wiring diagrams for the standard examples
+
+[![Arduino Uno R3 wiring overview](extras/wiring/arduino-uno-r3.svg)](extras/wiring/arduino-uno-r3.svg)
+
+Each link opens a full-size diagram. Orient the Arduino with the
+component side facing you and its USB connector at the top.
+
+| Board | Pins for VFD D0–D7, in order | PBUSY | /WR | /RESET |
+| --- | --- | --- | --- | --- |
+| [Arduino Uno R3](extras/wiring/arduino-uno-r3.svg) | D2–D9 | D10 | D11 | D12 |
+| [Arduino Mega 2560 Rev3](extras/wiring/arduino-mega-2560.svg) | D2–D9 | D10 | D11 | D12 |
+| [SparkFun Pro Micro 5 V / 16 MHz](extras/wiring/sparkfun-pro-micro-5v.svg) | D2–D9 | D10 | A0 | A1 |
+| [Arduino Uno R4 Minima](extras/wiring/arduino-uno-r4-minima.svg) | D2–D9 | D10 via buffer | D11 | D12 |
+| [Arduino Nano Every](extras/wiring/arduino-nano-every.svg) | A3, A2, A1, A0, A6, A7, D9, D10 | D6 | D4 | D2 |
+| [Arduino Uno WiFi Rev2](extras/wiring/arduino-uno-wifi-rev2.svg) | A0–A5, D9, D10 | D3 | D5 | D7 |
+
+Power the VFD from its own external regulated 5 V supply sized for the
+display's startup inrush. Join Arduino GND, VFD GND, and PSU GND. Leave
+the Arduino 5 V supply pin open. Use the VFD supply to tie /RD high and
+to pull /WR and /RESET high while the Arduino starts. The diagrams show
+10 kΩ example pull-up resistors. [Noritake power specifications](https://noritake-itron.com/site2017/images/Specs/VFD/CDG/GU256X64D-7000x/gu256x64d-7000_e01-c5.pdf)
+
+The pin numbers apply to the original GU256X64D-7000. The diagram groups
+the module terminals by function. Locate each connector's pin 1 on the
+physical module. Set jumper JRB to C–B for PBUSY on CN1 pin 3, leave RS
+(CN1 pin 4) open, and use /RESET on CN2 pin 6. Check the hardware
+specification for your model if the module has a different suffix.
+[Original module connector specification](https://noritake-itron.com/site2017/images/Specs/VFD/CDG/GU256X64D-7000x/gu256x64d-7000_e01-c5.pdf)
+
+On the Uno R4 Minima, use the 5 V noninverting buffer shown for PBUSY.
+The VFD's guaranteed PBUSY high of 3.8 V is below the R4's 4.0 V input
+threshold at a 5 V supply. Connect VFD PBUSY to A (pin 2) and route Y
+(pin 4) to Arduino D10 for the standard sketches or A0 for SdCardBitmap.
+Ground /OE (pin 1) and GND (pin 3), and decouple VCC (pin 5) with 100 nF. [RA4M1 datasheet](https://www.renesas.com/en/document/dst/ra4m1-group-datasheet), [SN74AHCT1G125 datasheet](https://www.ti.com/lit/ds/symlink/sn74ahct1g125.pdf)
 
 ### ATmega4809 direct-port wiring
 

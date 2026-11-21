@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1020" viewBox="0 0 1440 1020" role="img" aria-labelledby="title description">
+  <title id="title">SparkFun Pro Micro, 5 V / 16 MHz with the GU256X64D-7000</title>
+  <desc id="description">Component-side Arduino and original GU256X64D-7000 wiring. Arduino D2 to VFD D0 (CN1 · 7), Arduino D3 to VFD D1 (CN1 · 8), Arduino D4 to VFD D2 (CN1 · 9), Arduino D5 to VFD D3 (CN1 · 10), Arduino D6 to VFD D4 (CN1 · 11), Arduino D7 to VFD D5 (CN1 · 12), Arduino D8 to VFD D6 (CN1 · 13), Arduino D9 to VFD D7 (CN1 · 14), Arduino D10 to VFD PBUSY (CN1 · 3), Arduino A0 to VFD /WR (CN1 · 5), Arduino A1 to VFD /RESET (CN2 · 6). Arduino GND joins the external regulated 5 V PSU negative and VFD CN1 pin 1. The Arduino supply pin stays open. PSU positive goes to VFD CN1 pin 2, /RD at CN1 pin 6, and pull-up resistors for /WR and /RESET. Set JRB C–B for separate PBUSY at CN1 pin 3. CN1 pin 4 RS stays open.</desc>
+  <defs>
+    <linearGradient id="glass" x2="0%" y2="100%">
+      <stop stop-color="#13384a"/>
+      <stop offset="1" stop-color="#09232f"/>
+    </linearGradient>
+    <pattern id="pixels" width="7" height="7" patternUnits="userSpaceOnUse">
+      <rect width="3" height="3" rx="1" fill="#6497a5" opacity=".20"/>
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="1440" height="1020" rx="0" fill="#f7f9fc" stroke="none" stroke-width="1" />
+  <rect x="52" y="37" width="1336" height="948" rx="26" fill="none" stroke="#d5e0e8" stroke-width="2" />
+  <text x="83" y="90" fill="#132d40" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="35" font-weight="800">SparkFun Pro Micro, 5 V / 16 MHz</text>
+  <text x="84" y="120" fill="#365169" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="550">ATmega32U4 · 5 V / 16 MHz   ·   Component side   ·   Standard examples</text>
+  <polyline points="83,139 1357,139" fill="none" stroke="#d9e4eb" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="307" y="198" width="221" height="503" rx="12" fill="#a62536" stroke="#741725" stroke-width="2" />
+  <rect x="398.5" y="180" width="38" height="59" rx="5" fill="#bcc9cf" stroke="#6c818d" stroke-width="2" />
+  <rect x="403.5" y="182" width="28" height="12" rx="4" fill="#536975" stroke="none" stroke-width="1" />
+  <polyline points="380.5,469.0 454.5,469.0" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="380.5,476.57142857142856 454.5,476.57142857142856" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="380.5,484.14285714285717 454.5,484.14285714285717" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="380.5,491.7142857142857 454.5,491.7142857142857" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="380.5,499.2857142857143 454.5,499.2857142857143" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="380.5,506.85714285714283 454.5,506.85714285714283" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="380.5,514.4285714285714 454.5,514.4285714285714" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="380.5,522.0 454.5,522.0" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="394.5,455 394.5,536" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="401.07142857142856,455 401.07142857142856,536" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="407.64285714285717,455 407.64285714285717,536" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="414.2142857142857,455 414.2142857142857,536" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="420.7857142857143,455 420.7857142857143,536" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="427.35714285714283,455 427.35714285714283,536" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="433.92857142857144,455 433.92857142857144,536" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="440.5,455 440.5,536" fill="none" stroke="#9db6bc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="387.5" y="462" width="60" height="67" rx="5" fill="#203341" stroke="#18303e" stroke-width="2" />
+  <circle cx="395.5" cy="470" r="2.5" fill="#829aa5" stroke="none" stroke-width="1" />
+  <text x="417.5" y="498.5" fill="#b3c8d2" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="9" font-weight="600">32U4</text>
+  <rect x="406.5" y="274" width="6" height="8" rx="2" fill="#f5cc6b" stroke="none" stroke-width="1" />
+  <rect x="422.5" y="274" width="6" height="8" rx="2" fill="#f5cc6b" stroke="none" stroke-width="1" />
+  <text x="417.5" y="387" fill="#f1fbff" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="800">PRO</text>
+  <text x="417.5" y="407" fill="#f1fbff" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="800">MICRO</text>
+  <rect x="315" y="241" width="22" height="429" rx="4" fill="#174658" stroke="none" stroke-width="1" />
+  <circle cx="326" cy="252" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="343" y="257" fill="#bad6df" text-anchor="start" font-family="monospace" font-size="12" font-weight="450">TXO</text>
+  <circle cx="326" cy="289" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="343" y="294" fill="#bad6df" text-anchor="start" font-family="monospace" font-size="12" font-weight="450">RXI</text>
+  <circle cx="326" cy="326" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="343" y="331" fill="#f1fbff" text-anchor="start" font-family="monospace" font-size="14" font-weight="750">GND</text>
+  <circle cx="326" cy="363" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="343" y="368" fill="#bad6df" text-anchor="start" font-family="monospace" font-size="12" font-weight="450">GND</text>
+  <circle cx="326" cy="400" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="343" y="405" fill="#f1fbff" text-anchor="start" font-family="monospace" font-size="14" font-weight="750">D2</text>
+  <circle cx="326" cy="437" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="343" y="442" fill="#f1fbff" text-anchor="start" font-family="monospace" font-size="14" font-weight="750">D3</text>
+  <circle cx="326" cy="474" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="343" y="479" fill="#f1fbff" text-anchor="start" font-family="monospace" font-size="14" font-weight="750">D4</text>
+  <circle cx="326" cy="511" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="343" y="516" fill="#f1fbff" text-anchor="start" font-family="monospace" font-size="14" font-weight="750">D5</text>
+  <circle cx="326" cy="548" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="343" y="553" fill="#f1fbff" text-anchor="start" font-family="monospace" font-size="14" font-weight="750">D6</text>
+  <circle cx="326" cy="585" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="343" y="590" fill="#f1fbff" text-anchor="start" font-family="monospace" font-size="14" font-weight="750">D7</text>
+  <circle cx="326" cy="622" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="343" y="627" fill="#f1fbff" text-anchor="start" font-family="monospace" font-size="14" font-weight="750">D8</text>
+  <circle cx="326" cy="659" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="343" y="664" fill="#f1fbff" text-anchor="start" font-family="monospace" font-size="14" font-weight="750">D9</text>
+  <rect x="498" y="241" width="22" height="429" rx="4" fill="#174658" stroke="none" stroke-width="1" />
+  <circle cx="509" cy="252" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="492" y="257" fill="#bad6df" text-anchor="end" font-family="monospace" font-size="12" font-weight="450">RAW</text>
+  <circle cx="509" cy="289" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="492" y="294" fill="#bad6df" text-anchor="end" font-family="monospace" font-size="12" font-weight="450">GND</text>
+  <circle cx="509" cy="326" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="492" y="331" fill="#bad6df" text-anchor="end" font-family="monospace" font-size="12" font-weight="450">RST</text>
+  <circle cx="509" cy="363" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="492" y="368" fill="#ffda8b" text-anchor="end" font-family="monospace" font-size="14" font-weight="750">VCC open</text>
+  <circle cx="509" cy="400" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="492" y="405" fill="#bad6df" text-anchor="end" font-family="monospace" font-size="12" font-weight="450">A3</text>
+  <circle cx="509" cy="437" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="492" y="442" fill="#bad6df" text-anchor="end" font-family="monospace" font-size="12" font-weight="450">A2</text>
+  <circle cx="509" cy="474" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="492" y="479" fill="#f1fbff" text-anchor="end" font-family="monospace" font-size="14" font-weight="750">A1</text>
+  <circle cx="509" cy="511" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="492" y="516" fill="#f1fbff" text-anchor="end" font-family="monospace" font-size="14" font-weight="750">A0</text>
+  <circle cx="509" cy="548" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="492" y="553" fill="#bad6df" text-anchor="end" font-family="monospace" font-size="12" font-weight="450">D15</text>
+  <circle cx="509" cy="585" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="492" y="590" fill="#bad6df" text-anchor="end" font-family="monospace" font-size="12" font-weight="450">D14</text>
+  <circle cx="509" cy="622" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="492" y="627" fill="#bad6df" text-anchor="end" font-family="monospace" font-size="12" font-weight="450">D16</text>
+  <circle cx="509" cy="659" r="7" fill="#2b3c40" stroke="#f3cb79" stroke-width="1.8" />
+  <text x="492" y="664" fill="#f1fbff" text-anchor="end" font-family="monospace" font-size="14" font-weight="750">D10</text>
+  <text x="417.5" y="167" fill="#365169" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="700">Micro USB at top</text>
+  <rect x="963" y="149" width="409" height="646" rx="22" fill="#d4dee6" stroke="none" stroke-width="1" />
+  <rect x="976" y="160" width="387" height="629" rx="17" fill="#32705f" stroke="#225748" stroke-width="2" />
+  <circle cx="993" cy="178" r="7" fill="#eaf1ef" stroke="#28584b" stroke-width="2" />
+  <circle cx="1346" cy="178" r="7" fill="#eaf1ef" stroke="#28584b" stroke-width="2" />
+  <circle cx="993" cy="771" r="7" fill="#eaf1ef" stroke="#28584b" stroke-width="2" />
+  <circle cx="1346" cy="771" r="7" fill="#eaf1ef" stroke="#28584b" stroke-width="2" />
+  <text x="1000" y="201" fill="#d9f0e7" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="750">NORITAKE VFD</text>
+  <text x="1000" y="229" fill="#ffffff" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="800">GU256X64D-7000</text>
+  <rect x="1168" y="275" width="168" height="393" rx="14" fill="#173d39" stroke="#244e46" stroke-width="2" />
+  <rect x="1180" y="287" width="144" height="369" rx="10" fill="url(#glass)" stroke="#4c7b82" stroke-width="1" />
+  <rect x="1194" y="309" width="115" height="303" rx="4" fill="url(#pixels)" stroke="none" stroke-width="1" />
+  <rect x="1195" y="433" width="113" height="87" rx="5" fill="#122f3c" stroke="none" stroke-width="1" />
+  <text x="1251" y="470" fill="#93eac9" text-anchor="middle" font-family="monospace" font-size="18" font-weight="800">256 × 64</text>
+  <text x="1251" y="496" fill="#8fd3bb" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700">DOT VFD</text>
+  <text x="1166" y="711" fill="#effbf7" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="750">Original -7000 module</text>
+  <text x="1166" y="735" fill="#d0e8e2" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" font-weight="650">Signal terminals are grouped</text>
+  <text x="1166" y="754" fill="#d0e8e2" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" font-weight="650">by function.</text>
+  <rect x="983" y="232" width="160" height="534" rx="9" fill="#edf4f0" stroke="none" stroke-width="1" />
+  <text x="996" y="252" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">D0</text>
+  <text x="1128" y="252" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN1 · 7</text>
+  <text x="996" y="288" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">D1</text>
+  <text x="1128" y="288" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN1 · 8</text>
+  <text x="996" y="324" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">D2</text>
+  <text x="1128" y="324" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN1 · 9</text>
+  <text x="996" y="360" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">D3</text>
+  <text x="1128" y="360" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN1 · 10</text>
+  <text x="996" y="396" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">D4</text>
+  <text x="1128" y="396" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN1 · 11</text>
+  <text x="996" y="432" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">D5</text>
+  <text x="1128" y="432" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN1 · 12</text>
+  <text x="996" y="468" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">D6</text>
+  <text x="1128" y="468" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN1 · 13</text>
+  <text x="996" y="504" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">D7</text>
+  <text x="1128" y="504" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN1 · 14</text>
+  <text x="996" y="540" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">PBUSY</text>
+  <text x="1128" y="540" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN1 · 3</text>
+  <text x="996" y="576" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">/WR</text>
+  <text x="1128" y="576" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN1 · 5</text>
+  <text x="996" y="612" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">/RESET</text>
+  <text x="1128" y="612" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN2 · 6</text>
+  <text x="996" y="670" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">/RD</text>
+  <text x="1128" y="670" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN1 · 6</text>
+  <text x="996" y="713" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">VCC</text>
+  <text x="1128" y="713" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN1 · 2</text>
+  <text x="996" y="756" fill="#132d40" text-anchor="start" font-family="monospace" font-size="16" font-weight="750">GND</text>
+  <text x="1128" y="756" fill="#365169" text-anchor="end" font-family="monospace" font-size="12" font-weight="625">CN1 · 1</text>
+  <rect x="927" y="870" width="425" height="76" rx="13" fill="#edebe5" stroke="#9c9e9e" stroke-width="2" />
+  <rect x="935" y="878" width="409" height="60" rx="9" fill="#f4f5f6" stroke="none" stroke-width="1" />
+  <text x="1140" y="924" fill="#132d40" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="23" font-weight="800">External regulated 5 V PSU</text>
+  <text x="1024" y="892" fill="#c32c39" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="800">+5 V</text>
+  <text x="1171" y="892" fill="#202a35" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="800">GND</text>
+  <polyline points="1011,870 1011,827 866,827 866,589" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="1011,870 1011,827 866,827 866,589" fill="none" stroke="#c32c39" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-net="psu-positive"/>
+  <polyline points="866,665 976,665" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="866,665 976,665" fill="none" stroke="#c32c39" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-net="psu-positive" data-signal="/RD"/>
+  <polyline points="866,708 976,708" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="866,708 976,708" fill="none" stroke="#c32c39" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-net="psu-positive" data-signal="+5 V"/>
+  <polyline points="866,589 945,589 945,571" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="866,589 945,589 945,571" fill="none" stroke="#c32c39" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-net="pull-up-/WR"/>
+  <polyline points="866,624 947,624 947,607" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="866,624 947,624 947,607" fill="none" stroke="#c32c39" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-net="pull-up-/RESET"/>
+  <rect x="887" y="583" width="33" height="12" rx="3" fill="#fff7e7" stroke="#963f4e" stroke-width="2" />
+  <text x="903.5" y="592" fill="#653744" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="9" font-weight="750">10 kΩ</text>
+  <rect x="887" y="618" width="33" height="12" rx="3" fill="#fff7e7" stroke="#963f4e" stroke-width="2" />
+  <text x="903.5" y="627" fill="#653744" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="9" font-weight="750">10 kΩ</text>
+  <circle cx="866" cy="589" r="4.1" fill="#c32c39" stroke="none" stroke-width="1" />
+  <circle cx="866" cy="624" r="4.1" fill="#c32c39" stroke="none" stroke-width="1" />
+  <circle cx="866" cy="665" r="4.1" fill="#c32c39" stroke="none" stroke-width="1" />
+  <circle cx="866" cy="708" r="4.1" fill="#c32c39" stroke="none" stroke-width="1" />
+  <polyline points="1158,870 1158,852 957,852 957,751" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="1158,870 1158,852 957,852 957,751" fill="none" stroke="#202a35" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-net="psu-ground"/>
+  <polyline points="326,400 168,400 168,832 561,832 561,247 976,247" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="326,400 168,400 168,832 561,832 561,247 976,247" fill="none" stroke="#0767ce" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-signal="D0" data-board-pin="D2" data-vfd-pin="CN1 · 7"/>
+  <circle cx="326" cy="400" r="6.7" fill="#ffffff" stroke="#0767ce" stroke-width="3.9" />
+  <polyline points="326,437 185,437 185,818 580,818 580,283 976,283" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="326,437 185,437 185,818 580,818 580,283 976,283" fill="none" stroke="#7344c8" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-signal="D1" data-board-pin="D3" data-vfd-pin="CN1 · 8"/>
+  <circle cx="326" cy="437" r="6.7" fill="#ffffff" stroke="#7344c8" stroke-width="3.9" />
+  <polyline points="326,474 202,474 202,804 599,804 599,319 976,319" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="326,474 202,474 202,804 599,804 599,319 976,319" fill="none" stroke="#16815a" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-signal="D2" data-board-pin="D4" data-vfd-pin="CN1 · 9"/>
+  <circle cx="326" cy="474" r="6.7" fill="#ffffff" stroke="#16815a" stroke-width="3.9" />
+  <polyline points="326,511 219,511 219,790 618,790 618,355 976,355" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="326,511 219,511 219,790 618,790 618,355 976,355" fill="none" stroke="#b95a10" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-signal="D3" data-board-pin="D5" data-vfd-pin="CN1 · 10"/>
+  <circle cx="326" cy="511" r="6.7" fill="#ffffff" stroke="#b95a10" stroke-width="3.9" />
+  <polyline points="326,548 236,548 236,776 637,776 637,391 976,391" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="326,548 236,548 236,776 637,776 637,391 976,391" fill="none" stroke="#ca2972" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-signal="D4" data-board-pin="D6" data-vfd-pin="CN1 · 11"/>
+  <circle cx="326" cy="548" r="6.7" fill="#ffffff" stroke="#ca2972" stroke-width="3.9" />
+  <polyline points="326,585 253,585 253,762 656,762 656,427 976,427" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="326,585 253,585 253,762 656,762 656,427 976,427" fill="none" stroke="#00898c" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-signal="D5" data-board-pin="D7" data-vfd-pin="CN1 · 12"/>
+  <circle cx="326" cy="585" r="6.7" fill="#ffffff" stroke="#00898c" stroke-width="3.9" />
+  <polyline points="326,622 270,622 270,748 675,748 675,463 976,463" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="326,622 270,622 270,748 675,748 675,463 976,463" fill="none" stroke="#284e92" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-signal="D6" data-board-pin="D8" data-vfd-pin="CN1 · 13"/>
+  <circle cx="326" cy="622" r="6.7" fill="#ffffff" stroke="#284e92" stroke-width="3.9" />
+  <polyline points="326,659 287,659 287,734 694,734 694,499 976,499" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="326,659 287,659 287,734 694,734 694,499 976,499" fill="none" stroke="#866025" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-signal="D7" data-board-pin="D9" data-vfd-pin="CN1 · 14"/>
+  <circle cx="326" cy="659" r="6.7" fill="#ffffff" stroke="#866025" stroke-width="3.9" />
+  <polyline points="509,659 713,659 713,535 976,535" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="509,659 713,659 713,535 976,535" fill="none" stroke="#697813" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-signal="PBUSY" data-board-pin="D10" data-vfd-pin="CN1 · 3"/>
+  <circle cx="509" cy="659" r="6.7" fill="#ffffff" stroke="#697813" stroke-width="3.9" />
+  <polyline points="509,511 732,511 732,571 976,571" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="509,511 732,511 732,571 976,571" fill="none" stroke="#bd4263" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-signal="/WR" data-board-pin="A0" data-vfd-pin="CN1 · 5"/>
+  <circle cx="509" cy="511" r="6.7" fill="#ffffff" stroke="#bd4263" stroke-width="3.9" />
+  <polyline points="509,474 751,474 751,607 976,607" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="509,474 751,474 751,607 976,607" fill="none" stroke="#4b70a5" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-signal="/RESET" data-board-pin="A1" data-vfd-pin="CN2 · 6"/>
+  <circle cx="509" cy="474" r="6.7" fill="#ffffff" stroke="#4b70a5" stroke-width="3.9" />
+  <polyline points="326,326 151,326 151,846 770,846 770,751 976,751" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" />
+  <polyline points="326,326 151,326 151,846 770,846 770,751 976,751" fill="none" stroke="#202a35" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" data-signal="GND" data-board-pin="GND" data-vfd-pin="CN1 · 1"/>
+  <circle cx="326" cy="326" r="6.7" fill="#ffffff" stroke="#202a35" stroke-width="3.9" />
+  <circle cx="945" cy="571" r="5.0" fill="#bd4263" stroke="#ffffff" stroke-width="1.2" />
+  <circle cx="947" cy="607" r="5.0" fill="#4b70a5" stroke="#ffffff" stroke-width="1.2" />
+  <circle cx="957" cy="751" r="5.0" fill="#202a35" stroke="#ffffff" stroke-width="1.2" />
+  <circle cx="976" cy="247" r="6.7" fill="#ffffff" stroke="#0767ce" stroke-width="3.9" />
+  <circle cx="976" cy="283" r="6.7" fill="#ffffff" stroke="#7344c8" stroke-width="3.9" />
+  <circle cx="976" cy="319" r="6.7" fill="#ffffff" stroke="#16815a" stroke-width="3.9" />
+  <circle cx="976" cy="355" r="6.7" fill="#ffffff" stroke="#b95a10" stroke-width="3.9" />
+  <circle cx="976" cy="391" r="6.7" fill="#ffffff" stroke="#ca2972" stroke-width="3.9" />
+  <circle cx="976" cy="427" r="6.7" fill="#ffffff" stroke="#00898c" stroke-width="3.9" />
+  <circle cx="976" cy="463" r="6.7" fill="#ffffff" stroke="#284e92" stroke-width="3.9" />
+  <circle cx="976" cy="499" r="6.7" fill="#ffffff" stroke="#866025" stroke-width="3.9" />
+  <circle cx="976" cy="535" r="6.7" fill="#ffffff" stroke="#697813" stroke-width="3.9" />
+  <circle cx="976" cy="571" r="6.7" fill="#ffffff" stroke="#bd4263" stroke-width="3.9" />
+  <circle cx="976" cy="607" r="6.7" fill="#ffffff" stroke="#4b70a5" stroke-width="3.9" />
+  <circle cx="976" cy="665" r="6.7" fill="#ffffff" stroke="#c32c39" stroke-width="3.9" />
+  <circle cx="976" cy="708" r="6.7" fill="#ffffff" stroke="#c32c39" stroke-width="3.9" />
+  <circle cx="976" cy="751" r="6.7" fill="#ffffff" stroke="#202a35" stroke-width="3.9" />
+  <circle cx="1011" cy="870" r="8" fill="#ffffff" stroke="#c32c39" stroke-width="4" />
+  <circle cx="1158" cy="870" r="8" fill="#ffffff" stroke="#202a35" stroke-width="4" />
+  <text x="83" y="932" fill="#132d40" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="650">Set JRB C–B for PBUSY on CN1 pin 3. Leave RS (CN1 pin 4) open.</text>
+  <text x="83" y="957" fill="#365169" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="550">Arduino and VFD power share a ground. 10 kΩ is an example pull-up value.</text>
+</svg>
