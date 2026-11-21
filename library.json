@@ -1,0 +1,36 @@
+{
+  "name": "GU256X64D7000",
+  "version": "0.1.0",
+  "description": "Parallel Noritake GU256X64D-7000 driver for 5 V Arduino GPIO, with an ATmega4809 direct-port backend.",
+  "keywords": [
+    "display",
+    "vfd",
+    "noritake"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BeatGlow/GU256X64D7000.git"
+  },
+  "license": "MIT",
+  "frameworks": [
+    "arduino"
+  ],
+  "platforms": [
+    "atmelavr",
+    "atmelmegaavr",
+    "renesas-ra"
+  ],
+  "headers": [
+    "GU256X64D7000.h"
+  ],
+  "export": {
+    "include": [
+      "LICENSE.md",
+      "README.md",
+      "examples",
+      "library.json",
+      "library.properties",
+      "src"
+    ]
+  }
+}
