@@ -20,3 +20,7 @@ grep -q 'VFD pins must be distinct' "$build/duplicate.log" || {
   cat "$build/duplicate.log" >&2
   exit 1
 }
+
+"${CXX:-c++}" -std=gnu++11 -Wall -Wextra -Werror -DGU256X64D7000_HOST_TEST \
+  -I"$root/examples/SdCardBitmap" "$root/tests/sd-card-bitmap.cpp" -o "$build/sd-card-bitmap"
+"$build/sd-card-bitmap"

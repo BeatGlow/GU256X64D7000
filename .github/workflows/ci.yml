@@ -42,7 +42,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        sketch: [HelloVFD, BitmapVFD]
+        sketch: [HelloVFD, BitmapVFD, SdCardBitmap]
         board:
           - name: Nano Every
             fqbn: arduino:megaavr:nona4809:mode=off
@@ -70,6 +70,8 @@ jobs:
       - if: matrix.board.core == 'SparkFun:avr@1.1.13'
         run: arduino-cli core install arduino:avr@1.8.8
       - run: arduino-cli core install "${{ matrix.board.core }}" --additional-urls "$SPARKFUN_INDEX"
+      - if: matrix.sketch == 'SdCardBitmap'
+        run: arduino-cli lib install SD@1.3.0
       - run: arduino-cli compile --fqbn "${{ matrix.board.fqbn }}" --library . "examples/${{ matrix.sketch }}"
 
   emulator-tests:
