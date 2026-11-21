@@ -1,3 +1,5 @@
+#if defined(GU256X64D7000_HOST_TEST)
+
 #include <GU256X64D7000.h>
 
 #include <cassert>
@@ -87,3 +89,5 @@ int main() {
   testInitializeAndControls(vfd);
   testTextAndBitmaps(vfd);
 }
+
+#endif  // GU256X64D7000_HOST_TEST
