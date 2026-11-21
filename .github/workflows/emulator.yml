@@ -65,7 +65,7 @@ jobs:
             tar -xz --strip-components=1 -C "$RUNNER_TEMP/renode"
           arduino-cli compile --fqbn "$FQBN" --library . --build-property compiler.cpp.extra_flags=-DNO_USB --output-dir "$RUNNER_TEMP/bus" extras/BusContract
           python3 tests/renode/run.py "$RUNNER_TEMP/renode/renode" "$RUNNER_TEMP/bus/BusContract.ino.elf" "$RUNNER_TEMP/bus"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: ${{ matrix.emulator }}-${{ matrix.board }}-trace
